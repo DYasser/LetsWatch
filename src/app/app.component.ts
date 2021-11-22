@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'phoneInteract';
+  link = "http://amazon.co.uk"; 
+
+  LoadPage(smtg){ 
+    document.querySelector('iframe').src = smtg;
+   }
 }

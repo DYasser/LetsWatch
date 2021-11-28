@@ -7,35 +7,52 @@ import { Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'phoneInteract';
+  counter = 0;
+  index = 0;
+  b:boolean = false;
+  f:boolean = false;
 
   ngOnInit(): void {
     //this.stop();
   }
 
-
   loadPage(link:string){ 
-    if(link.substring(0,4) === "www.")
+
+    if(link.substring(0,8) === "https://" || link.substring(0,7) === "http://" )
     {
-      link = "https://"+link
+      document.querySelector('iframe').src = link;
     }
-    else if((link.substring(8) !== "https://" || link.substring(7) !== "http://" ) && link.substring(0,3) !== "www.")
-    {
-      link = "https://www."+link
+    else {
+      link = "http://"+link
+      document.querySelector('iframe').src = link;
     }
     //console.log(link);
-    document.querySelector('iframe').src = link;
    }
 
   back(){
+    this.index--;
+    this.b = true;
     window.history.back();
   }
   
   forward(){
+    this.index++;
+    this.f = true;
     window.history.forward();
   }
 
   stop(){
-    console.log(window.location.href);
+    console.log();
     //document.querySelector('iframe').src = "";
+  }
+
+  newPage(){
+    if(!this.b && !this.f){
+      this.index++;
+      this.counter=this.index;
+    }
+    this.b = false;
+    this.f = false;
+    console.log("counter: "+this.counter + ", index: "+this.index);
   }
 }

@@ -6,13 +6,14 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'phoneInteract';
+  title = 'LetsWatch';
   counter = 0;
   index = 0;
   b:boolean = false;
   f:boolean = false;
 
   ngOnInit(): void {
+    console.log("testing");
     //this.stop();
   }
 

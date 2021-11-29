@@ -4,11 +4,11 @@
 
 <body>
     <app-nav-bar></app-nav-bar>
-    <div class="container">
+    <div class="container" >
     
       <div class="row">
         <div class="col">
-          <div> 
+          <div onload="alert('test')">  
             
             <input type="text" value="" class="frmUrlVal" #URL>
             <input type="submit" class="frmSubmit" value="Go" (click)="loadPage(URL.value)">
@@ -16,12 +16,13 @@
             <input type="button" VALUE="Forward &nbsp; &gt; &gt;"  (click)="forward()" [disabled]="index >= counter"> 
             <input type="button" VALUE="stop"  (click)="stop()"> 
            </div>
-           <iframe align="center" width="100%" height="500px" (load)="newPage()"
+           <iframe align="center" width="100%" height="500px" (load)="newPage()" 
            allow="midi *, fullscreen *, geolocation *, picture-in-picture *, 
            encrypted-media *, autoplay *" 
            sandbox="allow-forms allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox" 
-           src="" allowfullscreen="" class="Webview__webview__J8UFF" 
-           referrerpolicy="origin" allowtransparency=""></iframe>
+           src="" allowfullscreen="" 
+           referrerpolicy="origin" allowtransparency="" ></iframe>
+            
           <router-outlet></router-outlet>
         </div>
       </div>
